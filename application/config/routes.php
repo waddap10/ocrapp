@@ -64,4 +64,5 @@ $route['insertdata'] = 'readdatacontroller/insertdata';
 
 $route['editdata/(:num)'] = 'readdatacontroller/editdata/$1';
 $route['deletedata/(:num)'] = 'readdatacontroller/deletedata/$1';
-$route['savedata/(:num)'] = 'readdatacontroller/savedata/$1';
+$route['updatedata/(:num)'] = 'readdatacontroller/updatedata/$1';
+$route['listdata'] = 'readdatacontroller/listdata/';

@@ -19,11 +19,12 @@ class ImageController extends CI_Controller
     {
         $id =  $this->session->userdata('userId');
         $userresult = $this->usermodel->getusername($id);
-        $user['name'] = $userresult;
+        $data['name'] = $userresult;
         $data['titlepage'] = "Upload Image";
 
         $this->load->view('elements/header', $data);
-        $this->load->view('elements/navbar', $user);
+        $this->load->view('elements/navbar', $data);
+        $this->load->view('elements/sidebar', $data);
         $this->load->view('imageupload', array('error' => ' '));
         $this->load->view('elements/footer');
         
@@ -34,7 +35,7 @@ class ImageController extends CI_Controller
         $config = array(
             'upload_path' => "./assets/images/",
             'allowed_types' => "gif|jpg|png|jpeg|pdf",
-            'overwrite' => FALSE,
+            'overwrite' => TRUE,
             'max_size' => "20480000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
             'max_height' => "7680",
             'max_width' => "10240"
@@ -50,11 +51,12 @@ class ImageController extends CI_Controller
             $error = array('error' => $this->upload->display_errors());
             $id =  $this->session->userdata('userId');
             $userresult = $this->usermodel->getusername($id);
-            $user['name'] = $userresult;
+            $data['name'] = $userresult;
             $data['titlepage'] = "Upload Image";
 
             $this->load->view('elements/header', $data);
-            $this->load->view('elements/navbar', $user);
+            $this->load->view('elements/navbar', $data);
+            $this->load->view('elements/sidebar', $data);
             $this->load->view('imageupload', $error);
             $this->load->view('elements/footer');
         }

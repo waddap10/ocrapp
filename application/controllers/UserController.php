@@ -62,6 +62,7 @@ class UserController extends CI_Controller
             }
         }
 
+        $data['titlepage'] = "Login Page";
         // Load view 
         $this->load->view('elements/header', $data);
         $this->load->view('users/login', $data);
@@ -104,6 +105,8 @@ class UserController extends CI_Controller
 
         // Posted data 
         $data['usermodel'] = $userData;
+
+        $data['titlepage'] = "Register Page";
 
         // Load view 
         $this->load->view('elements/header', $data);

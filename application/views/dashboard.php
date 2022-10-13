@@ -1,65 +1,78 @@
-<?php
-defined('BASEPATH') or exit('No direct script access allowed');
-?>
-<div class="container-fluid">
-    <div class="button-add">
-        <form action="<?php echo base_url('/imageupload/'); ?>">
-            <input type="submit" value="Tambah Data" class="btn btn-success" />
-        </form>
-    </div>
-    <div class="table-responsive">
-        <table class="table table-hover table-bordered align-middle text-center">
-            <thead>
-                <tr class="table-dark">
-                    <th scope="col">#</th>
-                    <th scope="col">Provinsi</th>
-                    <th scope="col">Kota</th>
-                    <th scope="col">NIK</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">TTL</th>
-                    <th scope="col">Jenis Kelamin</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">RT/RW</th>
-                    <th scope="col">Desa/Kelurahan</th>
-                    <th scope="col">Kecamatan</th>
-                    <th scope="col">Agama</th>
-                    <th scope="col">Status Kawin</th>
-                    <th scope="col">Pekerjaan</th>
-                    <th scope="col">Kewarganegaraan</th>
-                    <th scope="col">Berlaku s/d</th>
-                    <th scope="col">Golongan Darah</th>
-                    <th scope="col">Update</th>
-                    <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php for ($i = 0; $i < count($dataresult); ++$i) { ?>
-                    <tr>
-                        <th scope="row"><?php echo ($i + 1); ?></th>
-                        <td><?php echo $dataresult[$i]->provinsi; ?></td>
-                        <td><?php echo $dataresult[$i]->kota; ?></td>
-                        <td><?php echo $dataresult[$i]->nik; ?></td>
-                        <td><?php echo $dataresult[$i]->nama; ?></td>
-                        <td><?php echo $dataresult[$i]->ttl; ?></td>
-                        <td><?php echo $dataresult[$i]->gender; ?></td>
-                        <td><?php echo $dataresult[$i]->alamat; ?></td>
-                        <td><?php echo $dataresult[$i]->rtrw; ?></td>
-                        <td><?php echo $dataresult[$i]->desa; ?></td>
-                        <td><?php echo $dataresult[$i]->kec; ?></td>
-                        <td><?php echo $dataresult[$i]->agama; ?></td>
-                        <td><?php echo $dataresult[$i]->sts_kawin; ?></td>
-                        <td><?php echo $dataresult[$i]->job; ?></td>
-                        <td><?php echo $dataresult[$i]->nation; ?></td>
-                        <td><?php echo $dataresult[$i]->exp; ?></td>
-                        <td><?php echo $dataresult[$i]->goldar; ?></td>
-                        <td><a href=<?php echo "editdata/" . $dataresult[$i]->id; ?> class="btn btn-success">Update</a></td>
-                        <td><a href=<?php echo "deletedata/" . $dataresult[$i]->id; ?> class="btn btn-danger">Delete</a></td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-</body>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Dashboard</h1>
+        </div><!-- /.col --><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Info boxes -->
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box">
+            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-calendar"></i></span>
 
-</html>
+            <div class="info-box-content">
+              <span class="info-box-text">Data Masuk Hari Ini</span>
+              <span class="info-box-number">
+                <?php echo $datahariini[0]->datahariini;  ?>
+              </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-database"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Total Data Masuk</span>
+              <span class="info-box-number"><?php echo $totaldata[0]->totaldata;  ?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix hidden-md-up"></div>
+
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Jumlah Data Aktif</span>
+              <span class="info-box-number"><?php echo $dataaktif[0]->dataaktif;  ?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-trash"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Total Data Dihapus</span>
+              <span class="info-box-number"><?php echo $datadihapus[0]->datadihapus;  ?></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->

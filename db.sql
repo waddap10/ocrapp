@@ -31,7 +31,6 @@ CREATE TABLE data (
     nation VARCHAR(150),
     exp VARCHAR(150),
     goldar VARCHAR(150),
-    nama_image varchar(100),
     status TINYINT(1) DEFAULT 1,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NULL,

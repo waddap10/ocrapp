@@ -8,7 +8,7 @@ class UserController extends CI_Controller
 
         // Load form validation library & user model 
         $this->load->library('form_validation');
-        $this->load->model('usermodel');
+        $this->load->model('UserModel');
 
         // User login status 
         $this->isUserLoggedIn = $this->session->userdata('isUserLoggedIn');
@@ -49,7 +49,7 @@ class UserController extends CI_Controller
                         'status' => 1
                     )
                 );
-                $checkLogin = $this->usermodel->getRows($con);
+                $checkLogin = $this->UserModel->getRows($con);
                 if ($checkLogin) {
                     $this->session->set_userdata('isUserLoggedIn', TRUE);
                     $this->session->set_userdata('userId', $checkLogin['id']);
@@ -91,7 +91,7 @@ class UserController extends CI_Controller
             );
 
             if ($this->form_validation->run() == true) {
-                $insert = $this->usermodel->insert($userData);
+                $insert = $this->UserModel->insert($userData);
                 if ($insert) {
                     $this->session->set_userdata('success_msg', 'Your account registration has been successful. Please login to your account.');
                     redirect('/login');
@@ -104,7 +104,7 @@ class UserController extends CI_Controller
         }
 
         // Posted data 
-        $data['usermodel'] = $userData;
+        $data['UserModel'] = $userData;
 
         $data['titlepage'] = "Register Page";
 
@@ -131,7 +131,7 @@ class UserController extends CI_Controller
                 'email' => $str
             )
         );
-        $checkEmail = $this->usermodel->getRows($con);
+        $checkEmail = $this->UserModel->getRows($con);
         if ($checkEmail > 0) {
             $this->form_validation->set_message('email_check', 'The given email already exists.');
             return FALSE;

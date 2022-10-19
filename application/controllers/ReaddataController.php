@@ -7,7 +7,7 @@ class ReaddataController extends CI_Controller
   {
     parent::__construct();
 
-    $this->load->model('usermodel');
+    $this->load->model('UserModel');
     $this->load->helper('url');
     $this->load->database();
     $this->load->model('DataModel');
@@ -29,7 +29,7 @@ class ReaddataController extends CI_Controller
     $json = file_get_contents("./assets/json/read_data.json");
     $json_data  = json_decode($json);
     $id =  $this->session->userdata('userId');
-    $userresult = $this->usermodel->getusername($id);
+    $userresult = $this->UserModel->getusername($id);
     $data['name'] = $userresult;
     $data['titlepage'] = "Read Data";
 
@@ -78,7 +78,7 @@ class ReaddataController extends CI_Controller
     $this->load->model('DataModel');
     $this->load->helper(array('form', 'url'));
     $iduser =  $this->session->userdata('userId');
-    $userresult = $this->usermodel->getusername($iduser);
+    $userresult = $this->UserModel->getusername($iduser);
     $data['name'] = $userresult;
     $data['titlepage'] = "Edit Data";
     $data['id'] = $id;
@@ -138,7 +138,7 @@ class ReaddataController extends CI_Controller
     $dataresult = $this->DataModel->displaydata();
     $data['dataresult'] = $dataresult;
     $id =  $this->session->userdata('userId');
-    $userresult = $this->usermodel->getusername($id);
+    $userresult = $this->UserModel->getusername($id);
     $data['name'] = $userresult;
     $data['titlepage'] = "List Data";
 

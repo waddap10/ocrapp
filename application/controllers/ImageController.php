@@ -7,18 +7,17 @@ class ImageController extends CI_Controller
     {
         parent::__construct();
 
-        $this->load->model('usermodel');
+        $this->load->model('UserModel');
         $this->isUserLoggedIn = $this->session->userdata('isUserLoggedIn');
         if (!$this->isUserLoggedIn) {
             redirect('/login');
         }
-        
     }
 
     public function imageupload()
     {
         $id =  $this->session->userdata('userId');
-        $userresult = $this->usermodel->getusername($id);
+        $userresult = $this->UserModel->getusername($id);
         $data['name'] = $userresult;
         $data['titlepage'] = "Upload Image";
 
@@ -50,7 +49,7 @@ class ImageController extends CI_Controller
         } else {
             $error = array('error' => $this->upload->display_errors());
             $id =  $this->session->userdata('userId');
-            $userresult = $this->usermodel->getusername($id);
+            $userresult = $this->UserModel->getusername($id);
             $data['name'] = $userresult;
             $data['titlepage'] = "Upload Image";
 

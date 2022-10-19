@@ -49,20 +49,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'dashboardcontroller';
+$route['default_controller'] = 'DashboardController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['login'] = 'usercontroller/login';
-$route['registration'] = 'usercontroller/registration';
-$route['logout'] = 'usercontroller/logout';
+$route['login'] = 'UserController/login';
+$route['registration'] = 'UserController/registration';
+$route['logout'] = 'UserController/logout';
 
-$route['imageupload'] = 'imagecontroller/imageupload';
+$route['imageupload'] = 'ImageController/imageupload';
 
-$route['readdata'] = 'readdatacontroller';
-$route['insertdata'] = 'readdatacontroller/insertdata';
+$route['readdata'] = 'ReaddataController';
+$route['insertdata'] = 'ReaddataController/insertdata';
 
-$route['editdata/(:num)'] = 'readdatacontroller/editdata/$1';
-$route['deletedata/(:num)'] = 'readdatacontroller/deletedata/$1';
-$route['updatedata/(:num)'] = 'readdatacontroller/updatedata/$1';
-$route['listdata'] = 'readdatacontroller/listdata/';
+$route['editdata/(:num)'] = 'ReaddataController/editdata/$1';
+$route['deletedata/(:num)'] = 'ReaddataController/deletedata/$1';
+$route['updatedata/(:num)'] = 'ReaddataController/updatedata/$1';
+$route['listdata'] = 'ReaddataController/listdata/';

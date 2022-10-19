@@ -7,7 +7,7 @@ class DashboardController extends CI_Controller
   {
     parent::__construct();
 
-    $this->load->model('usermodel');
+    $this->load->model('UserModel');
     $this->load->helper('url');
     $this->load->database();
     $this->load->model('DataModel');
@@ -30,7 +30,7 @@ class DashboardController extends CI_Controller
     $datadihapus = $this->DataModel->hitungdatadihapus();
     $data['datadihapus']= $datadihapus;
     $id =  $this->session->userdata('userId');
-    $userresult = $this->usermodel->getusername($id);
+    $userresult = $this->UserModel->getusername($id);
     $data['name'] = $userresult;
     $data['titlepage'] = "Dashboard";
 

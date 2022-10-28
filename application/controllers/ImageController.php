@@ -32,7 +32,7 @@ class ImageController extends CI_Controller
     public function do_upload()
     {
         $config = array(
-            'upload_path' => "./assets/images/",
+            'upload_path' => "/var/www/html/assets/images/",
             'allowed_types' => "gif|jpg|png|jpeg|pdf",
             'overwrite' => TRUE,
             'max_size' => "20480000", // Can be set to particular file size , here it is 2 MB(2048 Kb)

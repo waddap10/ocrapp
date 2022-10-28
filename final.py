@@ -32,7 +32,7 @@ def preprocessing_image(img):
 
 reader = easyocr.Reader(['id'])
 
-p1 = "C:/xampp/htdocs/ocrappv2/assets/images/"
+p1 = "/var/www/html/assets/images/"
 p2 = p1+a.path
 
 
@@ -85,7 +85,7 @@ data = {
     'nama_image': a.path
 }
 
-a_file = open("C:/xampp/htdocs/ocrappv2/assets/json/read_data.json", "w")
+a_file = open("/var/www/html/assets/json/read_data.json", "w")
 a_file = json.dump(data, a_file)
 
 data

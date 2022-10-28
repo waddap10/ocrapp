@@ -21,7 +21,7 @@ class ReaddataController extends CI_Controller
   {
     $myVar = $this->session->flashdata('item');
     #echo $myVar;
-    $path = "C:/Users/Waddap/AppData/Local/Programs/Python/Python310/python.exe C:/xampp/htdocs/ocrappv2/final.py " . $myVar;
+    $path = "/var/www/env/bin/python3.10 /var/www/html/final.py " . $myVar;
 
     $command = escapeshellcmd($path);
     $output = shell_exec($command);
